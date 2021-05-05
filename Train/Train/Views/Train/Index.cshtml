@@ -1,0 +1,41 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+           Train Number
+        </th>
+        <th>
+            Source
+        </th>
+        <th>
+            Destination
+        </th>
+        <th>
+            Departure Time
+        </th>
+        <th>
+            Available Seats
+        </th>
+    </tr>
+
+@for(int i=0; i<Model.Rows.Count; i++) {
+<tr>
+    <td>@Model.Rows[i][0]</td>
+    <td>@Model.Rows[i][1]</td>
+    <td>@Model.Rows[i][2]</td>
+    <td>@Model.Rows[i][3]</td>
+    <td>@Model.Rows[i][4]</td>
+    <td>
+        <a href="@Url.Action("Details", "Train", new { id = @Model.Rows[i][0]})">View</a>
+    </td>
+</tr>
+}
+
+</table>
